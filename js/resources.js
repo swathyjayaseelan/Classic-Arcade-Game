@@ -4,7 +4,7 @@
     var readyCallbacks = [];
 
     function load(urlOrArr) {
-        if(urlOrArr instanceof Array) {
+        if (urlOrArr instanceof Array) {
             urlOrArr.forEach(function(url) {
                 _load(url);
             });
@@ -12,15 +12,18 @@
             _load(urlOrArr);
         }
     }
+
     function _load(url) {
-        if(resourceCache[url]){
+        if (resourceCache[url]) {
             return resourceCache[url];
         } else {
             var img = new Image();
             img.onload = function() {
                 resourceCache[url] = img;
-                if(isReady()) {
-                    readyCallbacks.forEach(function(func) { func(); });
+                if (isReady()) {
+                    readyCallbacks.forEach(function(func) {
+                        func();
+                    });
                 }
             };
 
@@ -46,9 +49,9 @@
      */
     function isReady() {
         var ready = true;
-        for(var k in resourceCache) {
-            if(resourceCache.hasOwnProperty(k) &&
-               !resourceCache[k]) {
+        for (var k in resourceCache) {
+            if (resourceCache.hasOwnProperty(k) &&
+                !resourceCache[k]) {
                 ready = false;
             }
         }
@@ -71,6 +74,6 @@
         onReady: onReady,
         isReady: isReady
     };
-    
+
 
 })();
