@@ -10,9 +10,10 @@
 <p>Use the keyboard arrows to move the boy</p>
 <br>
 ##<strong>Installation</strong>
-To play the game:
+<p>To play the game:
 - Download the GitHub zip file or clone the repository onto your local workstation
 - Open a browser window and navigate to the index.html file in your application's directory
+</p>
 <br>
 ##<strong>Tools/Techniques</strong>
 - Object Oriented JavaScript
