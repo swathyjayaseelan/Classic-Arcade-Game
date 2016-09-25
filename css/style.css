@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+.left
+{
+  position: absolute;
+      left: 40%;
+      top: 725px;
+      z-index: 999;
+}
+.right
+{
+  position: absolute;
+      right: 40%;
+      top: 725px;
+      z-index: 999;
+}
