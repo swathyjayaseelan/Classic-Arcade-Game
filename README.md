@@ -11,7 +11,7 @@
 <br>
 ##<strong>Installation</strong>
 <p>To play the game:<br>
-1. Download the GitHub zip file or clone the repository onto your local workstation
+1. Download the GitHub zip file or clone the repository onto your local workstation<br>
 2. Open a browser window and navigate to the index.html file in your application's directory
 </p>
 <br>
