@@ -13,7 +13,6 @@
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
  */
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -24,15 +23,15 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
-        count= 0;
-        misses=0;
+    count = 0;
+    misses = 0;
 
-//<canvas width="505" height="606" id="canvas"></canvas>
+    //<canvas width="505" height="606" id="canvas"></canvas>
     canvas.width = 505;
     canvas.height = 606;
     ctx.beginPath();
-    ctx.moveTo(200,100);
-    ctx.lineTo(300,300);
+    ctx.moveTo(200, 100);
+    ctx.lineTo(300, 300);
     ctx.closePath();
     doc.body.appendChild(canvas);
 
@@ -51,7 +50,7 @@ var Engine = (function(global) {
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-         //console.log(count);
+        //console.log(count);
         update(dt);
         render();
 
@@ -61,8 +60,8 @@ var Engine = (function(global) {
         lastTime = now;
 
 
-//reset();
-//console.log(count);
+        //reset();
+        //console.log(count);
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
@@ -89,51 +88,49 @@ var Engine = (function(global) {
 
 
     function updateEntities(dt) {
-      var i=0;
-      var j=0;
+        var i = 0;
+        var j = 0;
         allEnemies.forEach(function(enemy) {
-            enemy.update(dt,i,j);
-            i=i+0.3;
-            j=j+83;
-          });
-          player.update();
+            enemy.update(dt, i, j);
+            i = i + 0.3;
+            j = j + 83;
+        });
+        player.update();
     }
-/*This function checks for collisions between the player and bugs. If it happens misses is incremented by 1. It there are more than 3 misses
-then the game is reset.
-*/
+    /*This function checks for collisions between the player and bugs. If it happens misses is incremented by 1. It there are more than 3 misses
+    then the game is reset.
+    */
     function checkCollisions() {
-      var e1= Math.round(enemy1.x);
-      var e2= Math.round(enemy2.x);
-      var e3= Math.round(enemy3.x);
-      var y1= Math.round(enemy1.y);
-      var y2= Math.round(enemy2.y);
-      var y3= Math.round(enemy3.y);
-      if(((player.x===e1)||(player.x===e2)||(player.x===e3))&&((player.y===y1)||(player.y===y2)||(player.y===y3)))
-          {
-            player.x= 200;
-            player.y=400;
+        var e1 = Math.round(enemy1.x);
+        var e2 = Math.round(enemy2.x);
+        var e3 = Math.round(enemy3.x);
+        var y1 = Math.round(enemy1.y);
+        var y2 = Math.round(enemy2.y);
+        var y3 = Math.round(enemy3.y);
+        if (((player.x === e1) || (player.x === e2) || (player.x === e3)) && ((player.y === y1) || (player.y === y2) || (player.y === y3))) {
+            player.x = 200;
+            player.y = 400;
             misses++;
             reset();
-          }
-    if(player.y<=-15)
-    {
-      player.x=200;
-      player.y=400;
-      count++;
-      reset();
-    }
+        }
+        if (player.y <= -15) {
+            player.x = 200;
+            player.y = 400;
+            count++;
+            reset();
+        }
 
-}
+    }
 
     function render() {
 
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
@@ -141,7 +138,7 @@ then the game is reset.
 
         for (row = 0; row < numRows; row++) {
             for (col = 0; col < numCols; col++) {
-                ctx.drawImage(Resources.get(rowImages[row]), col*101, row*83);
+                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
 
             }
 
@@ -160,26 +157,24 @@ then the game is reset.
 
     }
 
-/* This function displays the points and misses. It resets the game if misses>3*/
+    /* This function displays the points and misses. It resets the game if misses>3*/
 
     function reset() {
 
-      document.getElementById('poi').innerText= count;
-      document.getElementById('mis').innerText= misses;
-      if(misses>3)
-      {
-        alert("Game Over !!");
-        count=0;
-        misses=0;
-        reset();
-      }
-      if(count>10)
-      {
-        alert("Congratulations! You won !!");
-        count=0;
-        misses=0;
-        reset();
-      }
+        document.getElementById('poi').innerText = count;
+        document.getElementById('mis').innerText = misses;
+        if (misses > 3) {
+            alert("Game Over !!");
+            count = 0;
+            misses = 0;
+            reset();
+        }
+        if (count > 10) {
+            alert("Congratulations! You won !!");
+            count = 0;
+            misses = 0;
+            reset();
+        }
     }
 
     Resources.load([
