@@ -10,7 +10,7 @@
 <p>Use the keyboard arrows to move the boy</p>
 <br>
 ##<strong>Installation</strong>
-<p>To play the game:
+<p>To play the game:<br><br>
 
 1. Download the GitHub zip file or clone the repository onto your local workstation<br>
 
