@@ -1,3 +1,4 @@
+
 var Enemy = function() {
 
     this.sprite = 'images/enemy-bug.png';
@@ -6,8 +7,6 @@ var Enemy = function() {
     this.i = 10;
 
 };
-
-
 Enemy.prototype.update = function(dt, i, j) {
 
     this.x = (this.x + Math.random() + i);
@@ -52,19 +51,19 @@ Player.prototype.handleInput = function(key) {
     switch (key) {
         case 'left':
             this.i = (-83);
-            player.update();
+            this.update();
             break;
         case 'right':
             this.i = 83;
-            player.update();
+            this.update();
             break;
         case 'up':
             this.j = (-83);
-            player.update();
+            this.update();
             break;
         case 'down':
             this.j = 83;
-            player.update();
+            this.update();
             break;
     }
 };
