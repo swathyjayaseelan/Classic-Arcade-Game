@@ -101,13 +101,15 @@ var Engine = (function(global) {
     then the game is reset.
     */
     function checkCollisions() {
-        var e1 = Math.round(enemy1.x);
+        /*var e1 = Math.round(enemy1.x);
         var e2 = Math.round(enemy2.x);
         var e3 = Math.round(enemy3.x);
         var y1 = Math.round(enemy1.y);
         var y2 = Math.round(enemy2.y);
         var y3 = Math.round(enemy3.y);
-        if (((player.x === e1) || (player.x === e2) || (player.x === e3)) && ((player.y === y1) || (player.y === y2) || (player.y === y3))) {
+        //if (((player.x === e1) || (player.x === e2) || (player.x === e3)) && ((player.y === y1) || (player.y === y2) || (player.y === y3))) {
+
+        if((y1+50<player.y)||((y2+50<player.y)||(y3+50<player.y)||((y1>player.y+50)))
             player.x = 200;
             player.y = 400;
             misses++;
@@ -119,8 +121,25 @@ var Engine = (function(global) {
             count++;
             reset();
         }
-
+*/
+   for (var i = 0; i < allEnemies.length; i++) {
+     if (!(allEnemies[i].y + 50 < player.y ||
+       allEnemies[i].y > player.y + 50 ||
+       allEnemies[i].x + 50 < player.x ||
+       allEnemies[i].x > player.x + 50)) {
+       player.x = 200;
+       player.y = 400;
+       misses++;
+       reset();
+  }
+    if (player.y <= -15) {
+      player.x = 200;
+      player.y = 400;
+      count++;
+      reset();
+      }
     }
+  }
 
     function render() {
 
