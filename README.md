@@ -3,12 +3,15 @@
 **Summary**
 <p>It is a variation of the Classic Arcade Game Frogger which was developed in 1981</p>
 <br>
+
 **Goals and Rules**
 <p>Help the boy to get to the water without getting hit by the bugs. Player gets 1 point each time boy gets to the water. Boy is allowed to hit the bugs for 3 times after which he dies and the game ends. Player wins the game if he/she gets 10 points </p>
 <br>
+
 **Navigation**
 <p>Use the keyboard arrows to move the boy</p>
 <br>
+
 **Installation**
 <p>To play the game:<br><br>
 
@@ -17,6 +20,7 @@
 2. Open a browser window and navigate to the index.html file in your application's directory
 </p>
 <br>
+
 **Tools/Techniques**
 - Object Oriented JavaScript
 - HTML5 Canvas
