@@ -16,11 +16,11 @@
 
 2. Open a browser window and navigate to the index.html file in your application's directory
 </p>
-<b>OR</b>
+                                          <b>(OR)</b>
 
  Access the link in your web browser: https://swathyjayaseelan.github.io/Classic-Arcade-Game/
 
-## Tools/Techniques**
+## Tools/Techniques
 - Object Oriented JavaScript
 - HTML5 Canvas
 - Prototype functions
